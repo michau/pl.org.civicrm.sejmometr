@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<extension key="pl.org.civicrm.sejmometr" type="module">
+  <file>sejmometr</file>
+  <name>CiviCRM Sejmometr Integration</name>
+  <description>CiviCRM extension allowing to reach for information from Polish
+  public data API site sejmometr.pl, focused on Parliament Members
+  information.</description>
+  <license>AGPL 3.0</license>
+  <maintainer>
+    <author>Michał Mach</author>
+    <email>mover@civicrm.org</email>
+  </maintainer>
+  <releaseDate>2012-12-08</releaseDate>
+  <version>0.1</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>4.2</ver>
+  </compatibility>
+  <comments>First take on extension.</comments>
+  <civix>
+    <namespace>CRM/Sejmometr</namespace>
+  </civix>
+</extension>
