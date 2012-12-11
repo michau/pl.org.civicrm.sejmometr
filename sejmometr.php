@@ -69,3 +69,18 @@ function sejmometr_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
 function sejmometr_civicrm_managed(&$entities) {
   return _sejmometr_civix_civicrm_managed($entities);
 }
+
+/**
+ * Implementation of hook_civicrm_tabs
+ *
+ * Generate a list of entities to create/deactivate/delete when this module
+ * is installed, disabled, uninstalled.
+ */
+function sejmometr_civicrm_tabs( &$tabs, $contactID ) {
+    $url = CRM_Utils_System::url( 'civicrm/sejmometr/member',
+                                  "reset=1&snippet=1&force=1&cid=$contactID" );
+    $tabs[] = array( 'id'    => 'sejmometrTab',
+                     'url'   => $url,
+                     'title' => 'Sejmometr',
+                     'weight' => 300 );
+}
