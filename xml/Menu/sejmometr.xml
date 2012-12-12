@@ -1,9 +1,20 @@
 <?xml version="1.0"?>
 <menu>
   <item>
-    <path>civicrm/sejmometr/member</path>
-    <page_callback>CRM_Sejmometr_Page_Member</page_callback>
-    <title>Member</title>
+    <path>civicrm/sejmometr/parliamentmemberinfo</path>
+    <page_callback>CRM_Sejmometr_Page_ParliamentMemberInfo</page_callback>
+    <title>Parliament Member Information</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
+  <item>
+    <path>civicrm/sejmometr/associate</path>
+    <page_callback>CRM_Sejmometr_Page_AssociateParliamentMember</page_callback>
+    <title>Associate Parliament Member to CiviCRM Contact</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/sejmometr/associateaction</path>
+    <page_callback>CRM_Sejmometr_Page_AssociateParliamentMember::associateaction</page_callback>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>  
 </menu>
