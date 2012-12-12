@@ -76,11 +76,28 @@ function sejmometr_civicrm_managed(&$entities) {
  * Generate a list of entities to create/deactivate/delete when this module
  * is installed, disabled, uninstalled.
  */
-function sejmometr_civicrm_tabs( &$tabs, $contactID ) {
-    $url = CRM_Utils_System::url( 'civicrm/sejmometr/member',
-                                  "reset=1&snippet=1&force=1&cid=$contactID" );
-    $tabs[] = array( 'id'    => 'sejmometrTab',
-                     'url'   => $url,
-                     'title' => 'Sejmometr',
-                     'weight' => 300 );
+function sejmometr_civicrm_tabs(&$tabs, $contactID) {
+
+  $contact = civicrm_api('Contact', 'Getsingle', array(
+    'contact_id' => $contactID,
+    'contact_type' => 'Individual',
+    'sequential' => 0,
+    'version' => 3,
+      ));
+
+  if( empty($contact['external_identifier'])) {
+    $url = CRM_Utils_System::url('civicrm/sejmometr/associate', 
+        "reset=1&snippet=1&force=1&cid=$contactID");        
+  } else {
+    $url = CRM_Utils_System::url('civicrm/sejmometr/parliamentmemberinfo', 
+        "reset=1&snippet=1&force=1&cid=$contactID");    
+  }
+  
+  //CRM_Core_Error::debug($contact);
+  
+
+  $tabs[] = array('id' => 'sejmometrTab',
+    'url' => $url,
+    'title' => 'Sejmometr',
+    'weight' => 300);
 }
