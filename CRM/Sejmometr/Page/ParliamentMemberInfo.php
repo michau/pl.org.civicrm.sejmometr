@@ -3,6 +3,7 @@
 require_once 'CRM/Core/Page.php';
 
 class CRM_Sejmometr_Page_ParliamentMemberInfo extends CRM_Core_Page {
+
   function run() {
     $this->_contactId = CRM_Utils_Request::retrieve( 'cid', 'Positive', $this, true );
 

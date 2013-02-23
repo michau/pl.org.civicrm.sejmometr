@@ -1,7 +1,7 @@
 <?php
 
 require_once 'sejmometr.civix.php';
-require_once('packages/ep_API/ep_API.php');
+require_once('packages/ePF_API/ep_API.php');
 
 /**
  * Implementation of hook_civicrm_config
@@ -77,7 +77,7 @@ function sejmometr_civicrm_managed(&$entities) {
  * is installed, disabled, uninstalled.
  */
 function sejmometr_civicrm_tabs(&$tabs, $contactID) {
-
+  
   $contact = civicrm_api('Contact', 'Getsingle', array(
     'contact_id' => $contactID,
     'contact_type' => 'Individual',
