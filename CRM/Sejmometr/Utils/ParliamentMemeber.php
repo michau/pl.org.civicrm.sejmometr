@@ -60,7 +60,7 @@ class CRM_Sejmometr_Utils_ParliamentMemeber {
   }  
 
   function get_data( $field_name ) {
-    return $this->member["$field_name"]; 
+    return isset($this->member["$field_name"]) ? $this->member["$field_name"] : NULL; 
   }
 
 }
