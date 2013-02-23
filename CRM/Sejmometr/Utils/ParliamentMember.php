@@ -4,7 +4,7 @@
  * ParliamentMemeber Class. 
  * Implements eP_Posel class.
  */
-class CRM_Sejmometr_Utils_ParliamentMemeber {
+class CRM_Sejmometr_Utils_ParliamentMember {
 
   public $id;
 
@@ -37,7 +37,7 @@ class CRM_Sejmometr_Utils_ParliamentMemeber {
     $member = $dataset->where( 'id', '=', $this->id)->find_one(); 
     
     if( $member ) {
-      $this->member = $member->data;
+      $this->data = $member->data;
       $this->first_name = $this->member['imie_pierwsze'];
       $this->middle_name = $this->member['imie_drugie'];    
       $this->last_name = $this->member['nazwisko'];
@@ -59,7 +59,7 @@ class CRM_Sejmometr_Utils_ParliamentMemeber {
     }    
   }  
 
-  function get_data( $field_name ) {
+  function get( $field_name ) {
     return isset($this->member["$field_name"]) ? $this->member["$field_name"] : NULL; 
   }
 

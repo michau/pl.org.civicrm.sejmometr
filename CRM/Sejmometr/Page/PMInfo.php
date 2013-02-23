@@ -1,7 +1,7 @@
 <?php
 
 require_once 'CRM/Core/Page.php';
-require_once 'CRM/Sejmometr/Utils/ParliamentMemeber.php';
+require_once 'CRM/Sejmometr/Utils/ParliamentMember.php';
 
 
 class CRM_Sejmometr_Page_PMInfo extends CRM_Core_Page {
@@ -42,14 +42,13 @@ class CRM_Sejmometr_Page_PMInfo extends CRM_Core_Page {
             'version' => 3,
                 ));
 
-        $dataset = new ep_Dataset('poslowie');
-
-        $member = $dataset->where('id', '=', $result['external_identifier'])->find_one();
-
+        $member = new CRM_Sejmometr_Utils_ParliamentMember( $result['external_identifier'] );
+        
+        
         $this->assign('contactID', $this->_contactId);
         $this->assign('member', $member->data);
 
-        $associates = $member->wspolpracownicy()->find_all();
+        $associates = $member->collaborators;
         $tpl_associates = array();
         foreach ($associates as $key => $associate) {
             $tpl_associates[$key] = $associate->data;
