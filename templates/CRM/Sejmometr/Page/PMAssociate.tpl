@@ -1,3 +1,5 @@
+<h3>Associate Sejmometr information with this record:</h3>
+
 {if $notFound}
     {ts 1=$fullName}Could not find Parliament Members with the name being exactly: %1.{/ts}
 

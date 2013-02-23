@@ -2,7 +2,7 @@
 
 require_once 'CRM/Core/Page.php';
 
-class CRM_Sejmometr_Page_ParliamentMemberInfo extends CRM_Core_Page {
+class CRM_Sejmometr_Page_PMInfo extends CRM_Core_Page {
 
   function run() {
     $this->_contactId = CRM_Utils_Request::retrieve( 'cid', 'Positive', $this, true );
@@ -23,7 +23,7 @@ class CRM_Sejmometr_Page_ParliamentMemberInfo extends CRM_Core_Page {
     
     $this->assign('member', $member->data);
 
-    $associates = $member->wspolpracownicy()->find_all();
+//    $associates = $member->wspolpracownicy()->find_all();
     $tpl_associates = array(); 
     foreach( $associates as $key => $associate) {
       $tpl_associates[$key] = $associate->data;

@@ -2,13 +2,11 @@
 
 require_once 'CRM/Core/Page.php';
 
-class CRM_Sejmometr_Page_AssociateParliamentMember extends CRM_Core_Page {
+class CRM_Sejmometr_Page_PMAssociate extends CRM_Core_Page {
 
   function associateaction() {
     $contactId = CRM_Utils_Request::retrieve('cid', 'Positive', $this, true);
     $sejmid = CRM_Utils_Request::retrieve('sejmid', 'Positive', $this, true);
-
-    var_dump( $contactId);
     
     $result = civicrm_api('Contact', 'Update', array(
       'id' => $contactId,
@@ -29,6 +27,7 @@ class CRM_Sejmometr_Page_AssociateParliamentMember extends CRM_Core_Page {
 
   function run() {
     $this->_contactId = CRM_Utils_Request::retrieve('cid', 'Positive', $this, true);
+
     $this->assign('contactID', $this->_contactId);
     $result = civicrm_api('Contact', 'Getsingle', array(
       'contact_id' => $this->_contactId,
