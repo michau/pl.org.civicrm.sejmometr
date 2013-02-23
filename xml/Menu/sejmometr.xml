@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <menu>
   <item>
+    <path>civicrm/sejmometr/configurationinfo</path>
+    <page_callback>CRM_Sejmometr_Page_ConfigurationInfo</page_callback>
+    <title>Sejmometr Configuration Information</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
     <path>civicrm/sejmometr/parliamentmemberinfo</path>
     <page_callback>CRM_Sejmometr_Page_PMInfo</page_callback>
     <title>Parliament Member Information</title>

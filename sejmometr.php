@@ -85,7 +85,10 @@ function sejmometr_civicrm_tabs(&$tabs, $contactID) {
     'version' => 3,
       ));
   
-  if( empty($contact['external_identifier'])) {
+ if( !sejmometr_validate_configuration() ) {
+    $url = CRM_Utils_System::url('civicrm/sejmometr/configurationinfo', 
+        "reset=1&snippet=1&force=1&cid=$contactID");
+  } elseif( empty($contact['external_identifier'])) {
     $url = CRM_Utils_System::url('civicrm/sejmometr/associate', 
         "reset=1&snippet=1&force=1&cid=$contactID");
   } else {
@@ -97,4 +100,19 @@ function sejmometr_civicrm_tabs(&$tabs, $contactID) {
     'url' => $url,
     'title' => 'Sejmometr',
     'weight' => 300);
+}
+
+/**
+ * Validate eP_API configuration
+ *
+ */
+function sejmometr_validate_configuration() {
+    
+    if (!defined('eP_API_KEY') || eP_API_KEY == "" ) {
+       return false;
+    }
+    if (!defined('eP_API_SECRET') || eP_API_SECRET == "") {
+       return false;     
+    }
+    return true;
 }
