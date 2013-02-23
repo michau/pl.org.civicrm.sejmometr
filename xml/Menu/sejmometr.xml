@@ -2,19 +2,19 @@
 <menu>
   <item>
     <path>civicrm/sejmometr/parliamentmemberinfo</path>
-    <page_callback>CRM_Sejmometr_Page_ParliamentMemberInfo</page_callback>
+    <page_callback>CRM_Sejmometr_Page_PMInfo</page_callback>
     <title>Parliament Member Information</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
   <item>
     <path>civicrm/sejmometr/associate</path>
-    <page_callback>CRM_Sejmometr_Page_AssociateParliamentMember</page_callback>
+    <page_callback>CRM_Sejmometr_Page_PMAssociate</page_callback>
     <title>Associate Parliament Member to CiviCRM Contact</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
   <item>
     <path>civicrm/sejmometr/associateaction</path>
-    <page_callback>CRM_Sejmometr_Page_AssociateParliamentMember::associateaction</page_callback>
+    <page_callback>CRM_Sejmometr_Page_PMAssociate::associateaction</page_callback>
     <access_arguments>access CiviCRM</access_arguments>
   </item>  
 </menu>
