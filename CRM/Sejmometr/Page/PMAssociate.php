@@ -21,7 +21,9 @@ class CRM_Sejmometr_Page_PMAssociate extends CRM_Core_Page {
             'version' => 3,
                 ));
 
-        var_dump($contact);
+        $url = CRM_Utils_System::url('civicrm/contact/view', 'action=browse&selectedChild=sejmometrTab&cid=' . $contactId
+        );
+        CRM_Utils_System::redirect($url);
     }
 
     function run() {
@@ -39,7 +41,7 @@ class CRM_Sejmometr_Page_PMAssociate extends CRM_Core_Page {
         $last_name = $result['last_name'];
         // in expected Sejmometr format
         $full_name = $first_name . ' ' . $last_name;
-        
+
         if (empty($last_name) && empty($first_name)) {
             $this->assign('emptyName', TRUE);
         } else {
@@ -51,14 +53,14 @@ class CRM_Sejmometr_Page_PMAssociate extends CRM_Core_Page {
             $members = $dataset->where('nazwa', '=', $full_name)->find_all();
             if (empty($members)) {
                 $this->assign('notFound', TRUE);
-                
-                if( ! empty($first_name)) {
+
+                if (!empty($first_name)) {
                     $others_by_first_name = $dataset->where('imie_pierwsze', '=', $result['first_name'])->find_all();
                     $this->assign('othersByFirstName', $others_by_first_name);
                 } else {
                     $this->assign('noOthersByFirstName', TRUE);
                 }
-                if( ! empty($last_name)) {
+                if (!empty($last_name)) {
                     $others_by_last_name = $dataset->where('nazwisko', '=', $result['last_name'])->find_all();
                     $this->assign('othersByLastName', $others_by_last_name);
                 } else {

@@ -13,7 +13,6 @@ class CRM_Sejmometr_Page_PMInfo extends CRM_Core_Page {
       'sequential' => 0,
       'version' => 3,
     ));
-    CRM_Core_Error::debug( $result['first_name'] );
     
     $dataset = new ep_Dataset('poslowie');
 

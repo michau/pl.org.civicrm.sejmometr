@@ -93,9 +93,6 @@ function sejmometr_civicrm_tabs(&$tabs, $contactID) {
         "reset=1&snippet=1&force=1&cid=$contactID");
   }
   
-  //CRM_Core_Error::debug($contact);
-  
-
   $tabs[] = array('id' => 'sejmometrTab',
     'url' => $url,
     'title' => 'Sejmometr',
