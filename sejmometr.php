@@ -84,13 +84,13 @@ function sejmometr_civicrm_tabs(&$tabs, $contactID) {
     'sequential' => 0,
     'version' => 3,
       ));
-
+  
   if( empty($contact['external_identifier'])) {
     $url = CRM_Utils_System::url('civicrm/sejmometr/associate', 
-        "reset=1&snippet=1&force=1&cid=$contactID");        
+        "reset=1&snippet=1&force=1&cid=$contactID");
   } else {
     $url = CRM_Utils_System::url('civicrm/sejmometr/parliamentmemberinfo', 
-        "reset=1&snippet=1&force=1&cid=$contactID");    
+        "reset=1&snippet=1&force=1&cid=$contactID");
   }
   
   //CRM_Core_Error::debug($contact);
