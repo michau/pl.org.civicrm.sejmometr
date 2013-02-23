@@ -16,9 +16,7 @@ class CRM_Sejmometr_Page_PMInfo extends CRM_Core_Page {
     
     $dataset = new ep_Dataset('poslowie');
 
-    $member = $dataset->where( 'imie_pierwsze', '=', $result['first_name'])->where( 'nazwisko', '=', $result['last_name'])->find_all();
-
-    CRM_Core_Error::debug( $member );
+    $member = $dataset->where( 'id', '=', $result['external_identifier'])->find_all();
     
     $this->assign('member', $member->data);
 
@@ -29,7 +27,7 @@ class CRM_Sejmometr_Page_PMInfo extends CRM_Core_Page {
     }
     $this->assign('associates', $tpl_associates);
 
-    $club = $member->klub();
+//    $club = $member->klub();
 
     // CRM_Core_Error::debug( $club );
     // CRM_Core_Error::debug( $associates );
