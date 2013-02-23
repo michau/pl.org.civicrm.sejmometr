@@ -1,1 +1,5 @@
-CiviCRM extension allowing to reach for information from Polish public data API site sejmometr.pl, focused on Parliament Members information.
+CiviCRM extension allowing to reach for information from Polish public data API site sejmometr.pl, 
+focused on Parliament Members information.
+
+In order to run, you need to grab Sejmometr API code from github, for more
+information see packages/README
