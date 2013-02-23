@@ -1,6 +1,8 @@
 <?php
 
 require_once 'CRM/Core/Page.php';
+require_once 'CRM/Sejmometr/Utils/ParliamentMemeber.php';
+
 
 class CRM_Sejmometr_Page_PMInfo extends CRM_Core_Page {
 
