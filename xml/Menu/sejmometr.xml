@@ -13,6 +13,12 @@
     <access_arguments>access CiviCRM</access_arguments>
   </item>
   <item>
+    <path>civicrm/sejmometr/copydataaction</path>
+    <page_callback>CRM_Sejmometr_Page_PMInfo::copydataaction</page_callback>
+    <title>Parliament Member Information</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>  
+  <item>
     <path>civicrm/sejmometr/associate</path>
     <page_callback>CRM_Sejmometr_Page_PMAssociate</page_callback>
     <title>Associate Parliament Member to CiviCRM Contact</title>
