@@ -1,33 +1,56 @@
 <h3>Sejmometr Parliament member information:</h3>
 
 {* Example: Display a variable directly *}
-<p>Z tym rekordem powiązany jest poseł: <strong>{$member.nazwa}</strong> (<a href="http://sejmometr.pl/poslowie/{$member.id}" target="_new">zobacz w Sejmometrze</a>)</p>
+<p>
+<h2>{ts}This contact record is associated with Sejmometr Parliament Member record of:{/ts}<br/>
+    <strong>{$pm->sejmometrName}</strong>
+    (<a href="http://sejmometr.pl/poslowie/{$pm->sejmometrId}" target="_new">{ts}see in Sejmometr{/ts}</a>)
+</h2>
+</p>
 
-<div>
-    <span class="label">Imię pierwsze:</span> {$member.imie_pierwsze}
-    (<a href="{crmURL p='civicrm/sejmometr/copydataaction' q="cid=`$contactID`&sejm_param=imie_pierwsze&civi_param=first_name"}">kopiuj do CiviCRMa</a>)
-</div>
+<div class="pmProperties">
+    <div class="pmProperty">
+        <span class="label">{ts}First Name{/ts}</span>: 
+        <span class="property">{$pm->first_name}</span>
+        <span class="action">(<a href="{$pm->buildCopyURL('first_name')}">{ts}copy{/ts}</a>)</span>
+    </div>
 
-<div>
-    <span class="label">Imię drugie:</span> {$member.imie_drugie}
-    (<a href="{crmURL p='civicrm/sejmometr/copydataaction' q="cid=`$contactID`&sejm_param=imie_drugie&civi_param=middle_name"}">kopiuj do CiviCRMa</a>)
-</div>
+    <div class="pmProperty">
+        <span class="label">{ts}Middle Name{/ts}</span>: 
+        <span class="property">{$pm->middle_name}</span>
+        <span class="action">(<a href="{$pm->buildCopyURL('middle_name')}">{ts}copy{/ts}</a>)</span>
+    </div>
 
-<div>
-    <span class="label">Nazwisko:</span> {$member.nazwisko}
-    (<a href="{crmURL p='civicrm/sejmometr/copydataaction' q="cid=`$contactID`&sejm_param=nazwisko&civi_param=last_name"}">kopiuj do CiviCRMa</a>)
-</div>
+    <div class="pmProperty">
+        <span class="label">{ts}Last Name{/ts}</span>: 
+        <span class="property">{$pm->last_name}</span>
+        <span class="action">(<a href="{$pm->buildCopyURL('last_name')}">{ts}copy{/ts}</a>)</span>
+    </div>
 
-<div>
-    <span class="label">Data urodzenia:</span> {$member.data_urodzenia}
-    (<a href="{crmURL p='civicrm/sejmometr/copydataaction' q="cid=`$contactID`&sejm_param=data_urodzenia&civi_param=birth_date"}">kopiuj do CiviCRMa</a>)
-</div>
+    <div class="pmProperty">
+        <span class="label">{ts}Birth Date{/ts}</span>: 
+        <span class="property">{$pm->birth_date}</span>
+        <span class="action">(<a href="{$pm->buildCopyURL('birth_date')}">{ts}copy{/ts}</a>)</span>
+    </div>
+</div> <!-- pmProperties -->
+
+<div class="pmAssociates">
+<ul>
+    {foreach from=$pm->associates() item=associate}
+        <li>
+            <span class="label">{$associate->job_title}</span>: 
+            <span class="property">{$associate->first_name} {$associate->last_name}</span>
+            <span class="action">(<a href="{$associate->buildCopyURL()}">{ts}copy{/ts}</a>)</span>
+        </li>
+    {/foreach}
+</ul>
+</div> <!-- pmAssociates -->
 
 
 <p>
-    <ul>
-    {foreach from=$associates item=associate}
-        <li>{$associate.nazwa}</li>
+<ul>
+    {foreach from=$commissions item=commission}
+        <li>{$commission.nazwa_stanowiska} - {$commission.nazwa}</li>
     {/foreach}
-    </ul>
+</ul>
 </p>
